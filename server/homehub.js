@@ -13,11 +13,13 @@ app.use("/",express.static("public"));
 // Create a server
 var server = http.createServer(app);
 
+
 // Create the settings object - see default settings.js file for other options
 var settings = {
     httpAdminRoot:"/red",
     httpNodeRoot: "/api",
-    userDir: 'node-red_modules',
+    nodesDir: '/home/darran/D/homehub/server/homehub-nodes',
+    userDir:  __dirname+'/nodered_modules',
     functionGlobalContext: { }    // enables global context
 };
 

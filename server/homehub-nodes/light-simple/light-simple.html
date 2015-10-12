@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('light-simple',{
+        category: 'homehub-commands',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "bulb.png",
+        label: function() {
+            return this.name||"Light (Simple)";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="light-simple">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="light-simple">
+    <p>A simple node that converts the message payloads into all light-simple characters</p>
+</script>
