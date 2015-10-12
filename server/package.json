@@ -1,0 +1,29 @@
+{
+  "name": "homehub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "homehub.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WatersideDevelopment/HomeHub.git"
+  },
+  "keywords": [
+    "IoT",
+    "Node-RED",
+    "MQTT",
+    "automation"
+  ],
+  "author": "D. Rimron-Soutter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WatersideDevelopment/HomeHub/issues"
+  },
+  "homepage": "https://github.com/WatersideDevelopment/HomeHub#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "node-red": "^0.11.2"
+  }
+}
