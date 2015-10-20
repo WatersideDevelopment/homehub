@@ -2,6 +2,7 @@
 
 var http = require('http');
 var express = require("express");
+var repl = require("repl");
 var RED = require("node-red");
 
 // Create an Express app
@@ -12,13 +13,13 @@ app.use("/",express.static("public"));
 
 // Create a server
 var server = http.createServer(app);
-
+var poop = "poop";
 
 // Create the settings object - see default settings.js file for other options
 var settings = {
     httpAdminRoot:"/red",
     httpNodeRoot: "/api",
-    nodesDir: '/home/darran/D/homehub/server/homehub-nodes',
+    nodesDir: __dirname+'/homehub-nodes',
     userDir:  __dirname+'/nodered_modules',
     functionGlobalContext: { }    // enables global context
 };
@@ -36,3 +37,13 @@ server.listen(8000);
 
 // Start the runtime
 RED.start();
+
+var envName = process.env.NODE_ENV || "dev";
+
+// open the repl session
+var replServer = repl.start({
+    prompt: "homehub (" + envName + ") > ",
+});
+
+replServer.context.RED = RED;
+
