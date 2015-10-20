@@ -4,6 +4,7 @@
   "description": "",
   "main": "homehub.js",
   "scripts": {
+    "run": "node homebar.js",
     "test": "gulp test"
   },
   "repository": {
