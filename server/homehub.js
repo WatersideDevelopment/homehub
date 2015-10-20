@@ -21,7 +21,10 @@ var settings = {
     httpNodeRoot: "/api",
     nodesDir: __dirname+'/homehub-nodes',
     userDir:  __dirname+'/nodered_modules',
-    functionGlobalContext: { }    // enables global context
+    functionGlobalContext: {
+        commands: [],
+        nodecount: 0
+    }    // enables global context
 };
 
 // Initialise the runtime with a server and settings
@@ -40,10 +43,21 @@ RED.start();
 
 var envName = process.env.NODE_ENV || "dev";
 
+var shutdown = function() {
+    RED.stop();
+    process.exit();
+};
+
 // open the repl session
 var replServer = repl.start({
     prompt: "homehub (" + envName + ") > ",
 });
 
 replServer.context.RED = RED;
+replServer.context.getCommands = function() {
+    console.log(RED.settings.functionGlobalContext.commands);
+}
 
+replServer.context.shutdown = function() {
+    shutdown();
+}
