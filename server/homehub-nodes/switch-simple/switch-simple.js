@@ -1,27 +1,31 @@
 module.exports = function(RED) {
     function HomeHubNode(config) {
+        /*
+         *  Stock HomeHub-Command node setup...
+         */
         RED.nodes.createNode(this,config);
         var node = this;
-        node.context = RED.settings.functionGlobalContext;
-        node.context.nodecount++;
-        node.context.commands[node.id] = node;
-
-        this.on('input', function(msg) {
-            msg.payload = "msg.payload";
-            node.send(msg);
-        });
+        node.context = {
+            global: RED.settings.functionGlobalContext
+        };
+        node.context.global.nodecount++;
+        node.context.global.commands[node.id] = node;
 
         this.on('close', function() {
             for(var i in node.context.commands) {
-                if(node.context.commands[i].id == node.id) {
-                    delete node.context.commands[node.id];
+                if(node.context.global.commands[i].id == node.id) {
+                    delete node.context.global.commands[node.id];
                 }
             }
-            node.context.nodecount--;
-            console.log("HOMEHUBNODE: close - nodes is "+node.context.nodecount);
+            node.context.global.nodecount--;
+            console.log("HOMEHUBNODE: close - nodes is "+node.context.global.nodecount);
         });
-        this.on('open', function(msg) {
-            console.log("HOMEHUBNODE: open");
+        /*
+         *  Actual node logix...
+         */
+        this.on('input', function(msg) {
+            msg.payload = "msg.payload";
+            node.send(msg);
         });
     }
     RED.nodes.registerType("switch-simple",HomeHubNode);
