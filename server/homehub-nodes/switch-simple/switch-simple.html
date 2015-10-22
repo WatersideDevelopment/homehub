@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    RED.nodes.registerType('switch-simple',{
+        category: 'homehub-commands',
+        color: '#a6bbcf',
+        defaults: {
+            name: {
+                value: ""
+            },
+            command: {
+                value: 1
+            }
+        },
+        inputs:0,
+        outputs:1,
+        icon: "bulb.png",
+        label: function() {
+            return this.name||"Simple Switch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="switch-simple">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-command"><i class="icon-tag"></i> Command</label>
+        <select id="node-input-command">
+            <option value="1">On</option>
+            <option value="0">Off</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="switch-simple">
+    <p>A simple node that issues an "On" of "Off" command.</p>
+</script>

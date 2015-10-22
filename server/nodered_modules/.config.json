@@ -260,14 +260,14 @@
      "module": "node-red",
      "file": "/home/darran/D/homehub/server/node_modules/node-red/nodes/core/storage/50-file.js"
     },
-    "light-simple": {
-     "name": "light-simple",
+    "switch-simple": {
+     "name": "switch-simple",
      "types": [
-      "light-simple"
+      "switch-simple"
      ],
      "enabled": true,
      "module": "node-red",
-     "file": "/home/darran/D/homehub/server/homehub-nodes/light-simple/light-simple.js"
+     "file": "/home/darran/D/homehub/server/homehub-nodes/switch-simple/switch-simple.js"
     }
    }
   },
