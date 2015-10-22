@@ -13,7 +13,6 @@ app.use("/",express.static("public"));
 
 // Create a server
 var server = http.createServer(app);
-var poop = "poop";
 
 // Create the settings object - see default settings.js file for other options
 var settings = {
@@ -29,7 +28,18 @@ var settings = {
         console.log(req.uri);
         next()
     },
-    paletteCategories: ['homehub-commands', 'subflows', 'homehub-advanced', 'input', 'output', 'function', 'social', 'storage', 'analysis', 'advanced'],
+    paletteCategories: [
+        'homehub-commands',
+        'subflows',
+        'homehub-advanced',
+        'input',
+        'output',
+        'function',
+        'social',
+        'storage',
+        'analysis',
+        'advanced'
+    ],
     functionGlobalContext: {
         commands: [],
         nodecount: 0
