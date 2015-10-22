@@ -40,6 +40,40 @@ var settings = {
         'analysis',
         'advanced'
     ],
+    editorTheme: {
+        page: {
+            title: "homehub flow editor",
+            favicon: "/absolute/path/to/theme/icon",
+            css: "/absolute/path/to/custom/css/file"
+        },
+        header: {
+            title: "homehub",
+            image: null, // or null to remove image
+            url: "http://www.watersidedevelopement.co.uk/portfolio/homehub" // optional url to make the header text/image a link to this url
+        },
+
+        deployButton: {
+            type:"simple",
+            label:"Save",
+            icon: null // or null to remove image
+        },
+
+        menu: { // Hide unwanted menu items by id. see editor/js/main.js:loadEditor for complete list
+            "menu-item-import-library": false,
+            "menu-item-export-library": false,
+            "menu-item-keyboard-shortcuts": false,
+            "menu-item-help": {
+                label: "Alternative Help Link Text",
+                url: "http://example.com"
+            }
+        },
+
+        userMenu: false, // Hide the user-menu even if adminAuth is enabled
+
+        login: {
+            image: "/absolute/path/to/login/page/big/image" // a 256x256 image
+        }
+    },
     functionGlobalContext: {
         commands: [],
         nodecount: 0
